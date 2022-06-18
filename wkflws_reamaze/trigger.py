@@ -1,7 +1,6 @@
 from typing import Any, Optional
 
 import json
-from wsgiref import validate
 
 from wkflws.events import Event
 from wkflws.http import http_method, Request, Response
