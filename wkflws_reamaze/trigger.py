@@ -28,14 +28,14 @@ async def process_webhook_request(
     reamaze_webhook = ReamazeWebhook(**data).dict(by_alias=True)
     request.headers["from_phone"] = data.get("from").get("phone")
     print(request.headers)
-    logger.info(f"Received Reamaze webhook request: {identifier}")
+    logger.info(f"Received Re:amaze webhook request: {identifier}")
 
     return Event(identifier, request.headers, reamaze_webhook)
 
 
 async def accept_event(event: Event) -> tuple[Optional[str], dict[str, Any]]:
     """Accept and process data from the event bus."""
-    logger.info(f"Processing Reamaze webhook'")
+    logger.info(f"Processing Re:amaze webhook'")
 
     return "wkflws_reamaze.outbound", event.data
 
